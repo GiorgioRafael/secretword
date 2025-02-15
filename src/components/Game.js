@@ -26,6 +26,11 @@ const Game = ({
     letterInputRef.current.focus();
   };
 
+  const handleInputValue = (e) => {
+    setLetter(e.target.value.toLowerCase());
+    
+  }
+
   return (
     <div className="game">
       <p className="points">
@@ -44,7 +49,7 @@ const Game = ({
         {guesses === 2 ? ( <span className="t2"> {guesses} </span>): null}
         {guesses === 1 ? ( <span className="t1"> {guesses} </span>): null}
 </span>
-        tentativa(s).</p>
+        {guesses === 1 ? "tentativa." : "tentativas."}</p>
       <div className="wordContainer">
         {letters.map((letter, i) =>
           guessedLetters.includes(letter) ? (
@@ -63,7 +68,7 @@ const Game = ({
             type="text"
             name="letter"
             maxLength="1"
-            onChange={(e) => setLetter(e.target.value)}
+            onChange={handleInputValue}
             required
             value={letter}
             ref={letterInputRef}
@@ -76,6 +81,7 @@ const Game = ({
         {wrongLetters.map((letter, i) => (
           <span key={i}>{letter}, </span>
         ))}
+        <h1>{pickedWord}</h1>
       </div>
     </div>
   );

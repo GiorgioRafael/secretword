@@ -57,8 +57,7 @@
   color: #ecfa00;
 }
 .frasetry{
-  padding-top: 	15px;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
 
 .tip {
@@ -67,20 +66,30 @@
 .t5 {
   font-size: 1.3em;
   color: #ecfa00;
+  font-weight: bold;
+
 }
 .t4 {
   font-size: 1.4em;
   color: #c3d100;
+  font-weight: 750;
+
 }
 .t3 {
   font-size: 1.5em;
   color: #faab00;
+  font-weight: 800;
+
 }
 .t2 {
   font-size: 1.6em;
   color: #ff6600;
+  font-weight: 850;
+
 }
 .t1 {
   font-size: 1.7em;
   color: #ff3300;
+  font-weight: 900;
+
 }

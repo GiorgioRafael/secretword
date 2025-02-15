@@ -4,17 +4,19 @@ import { useCallback, useEffect, useState } from "react";
 import StartScreen from "./components/StartScreen";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
+import ScoreUp from "./components/ScoreUp";
 
 // styles
 import "./App.css";
 
-// data
+// data 
 import { wordsList } from "./data/words";
 
 const stages = [
   { id: 1, name: "start" },
   { id: 2, name: "game" },
   { id: 3, name: "end" },
+  { id: 4, name: "win" },
 ];
 
 function App() {
@@ -132,11 +134,11 @@ function App() {
 
 
       if(gameStage ==="game"){
-      startGame();
+        setGameStage(stages[3].name);
       }
       // restart game with new word
     }
-  }, [guessedLetters, letters, startGame]);
+  }, [guessedLetters, letters]);
 
   return (
     <div className="App">
@@ -153,7 +155,8 @@ function App() {
           score={score}
         />
       )}
-      {gameStage === "end" && <GameOver retry={retry} score={score} />}
+      {gameStage === "end" && <GameOver pickedWord={pickedWord} retry={retry} score={score} />}
+      {gameStage === "win" && <ScoreUp startGame={startGame} pickedWord={pickedWord} score={score} />}
     </div>
   );
 }
